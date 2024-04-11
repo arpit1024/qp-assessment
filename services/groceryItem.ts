@@ -102,8 +102,8 @@ export class GroceryItemService {
   }
 
   async getItemBookedLastMonth() {
-    const startDate = moment().startOf("month").toDate();
-    const endDate = moment().endOf("month").toDate();
+    const startDate = moment().subtract(1, 'month').startOf("month").toDate();
+    const endDate = moment().subtract(1, 'month').endOf("month").toDate();
 
     const response = await this.bookingCollection.getItemBookedBetweenDates(
       startDate,
